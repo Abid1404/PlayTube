@@ -8,6 +8,14 @@ dotenv.config({
 
 
 connectDB()
+.then(() => {
+    app.listen(process.env.PORT || 8000, () => {
+        console.log(` Srever is running at port : ${process.env.PORT}`);
+    })
+})
+.catch((err)=> {
+    console.log("MONGO db connection failed", err )
+})
 // APPROCH 1
 /*
 // type 1 of connection 
